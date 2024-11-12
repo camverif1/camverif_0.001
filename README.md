@@ -1,32 +1,32 @@
 # camverif_0.001
 
-Setup Scene
+#Setup Scene
 -----------------
 The scene contains a set of objects, and each object is defined using triangle meshes. Each triangle has three vertices, and each vertex has an associated RGB color.
 
 
-# Scene Definition
+## Scene Definition
 
 Below, we describe how a 3D scene with objects is defined in the `scene.py` file. Each object in the scene is modeled using triangle meshes.
 
-## Variables in `scene.py`
+### Variables in `scene.py`
 
 - **`numOfTriangles`**: Specifies the number of triangles in the scene.
 - **`numOfVertices`**: Indicates the total number of vertices in the scene.
 - **`numOfEdges`**: Specifies the total number of edges in the scene.
 
-## Data Structures
+### Data Structures
 
 - **`vertices`**: A list containing the 3D coordinates of each vertex in the global coordinate system.
 - **`vertColours`**: A list containing the RGB color for each vertex, with three entries per vertex (one for red, one for green, and one for blue).
 - **`nvertices`**: A list of vertex indices for each triangle, with three entries per triangle (one index for each vertex).
 - **`tedges`**: A list containing the indices of vertices that form the edges of each triangle, where each edge is defined by two vertex indices (one for each endpoint).
 
-## Example
+### Example
 
 Suppose we have a scene with a single rectangular object. Number the vertices of the rectangle as 0, 1, 2, and 3.
 
-### Vertex Coordinates
+#### Vertex Coordinates
 
 The `vertices` list contains the 3D coordinates of each corner of the rectangle:
 
@@ -34,7 +34,7 @@ The `vertices` list contains the 3D coordinates of each corner of the rectangle:
 vertices = [1,1,1, 2,1,1, 2,2,1, 1,2,1]
 ```
 
-### Vertex Colors
+#### Vertex Colors
 
 Assume each vertex is green. The `vertColours` list is:
 
@@ -42,7 +42,7 @@ Assume each vertex is green. The `vertColours` list is:
 vertColours = [0,1,0, 0,1,0, 0,1,0, 0,1,0]
 ```
 
-### Triangles
+#### Triangles
 
 To form triangles from the rectangle, we divide it into two triangles:
 
@@ -55,7 +55,7 @@ The corresponding `nvertices` list is:
 nvertices = [0,1,2, 2,3,0]
 ```
 
-### Triangle Edges
+#### Triangle Edges
 
 Each triangle has three edges:
 
@@ -70,7 +70,7 @@ tedges = [0,1, 1,2, 2,0, 2,3, 3,0, 0,2]
 
 
 
-Image rendering
+#Image rendering
 ----------------------
 
 To render an image, run the following command:
@@ -89,7 +89,7 @@ python renderAnImage.py 1 5 120 abc
 
 To create a high-resolution image, adjust the parameters in the `camera.py` file.
 
-Compute Interval Image
+#Compute Interval Image
 --------------------------
 
 Define the region constraints in the `environment.py` file by setting the `initCubeCon` variable. This variable defines the region constraint in 3D space using three variables for each dimension: `xp0` for the x-axis, `yp0` for the y-axis, and `zp0` for the z-axis. An example constraint is provided below:
@@ -114,5 +114,5 @@ The intervals for each pixel in the image are saved in two files:
 - `globalMax.txt` — Contains the upper bounds of intervals for each pixel.
 
 The code uses the default camera setup specified in `camera.py`.
-```
+
 
