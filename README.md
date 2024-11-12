@@ -1,6 +1,12 @@
 # camverif_0.001
 
-#Setup Scene
+
+Requirements
+------------------
+ - **`z3`**: install z3 python.
+ - **`pyparma ppl`**: (https://pypi.org/project/pyparma/).
+
+Setup Scene
 -----------------
 The scene contains a set of objects, and each object is defined using triangle meshes. Each triangle has three vertices, and each vertex has an associated RGB color.
 
@@ -70,7 +76,7 @@ tedges = [0,1, 1,2, 2,0, 2,3, 3,0, 0,2]
 
 
 
-#Image rendering
+Image rendering
 ----------------------
 
 To render an image, run the following command:
@@ -89,7 +95,7 @@ python renderAnImage.py 1 5 120 abc
 
 To create a high-resolution image, adjust the parameters in the `camera.py` file.
 
-#Compute Interval Image
+Compute Interval Image
 --------------------------
 
 Define the region constraints in the `environment.py` file by setting the `initCubeCon` variable. This variable defines the region constraint in 3D space using three variables for each dimension: `xp0` for the x-axis, `yp0` for the y-axis, and `zp0` for the z-axis. An example constraint is provided below:
