@@ -1,21 +1,11 @@
 import environment
-
 import numpy as np
-
 import math
 import array
-
 from collections import Counter
-
 from time import sleep
-
-
-
-
-
 frameBuffer = dict()
 depthBuffer = dict()
-
 
 imageEnablePixleDict = dict()
 
@@ -26,11 +16,6 @@ imageWidth = environment.imageWidth
 imageHeight = environment.imageHeight
 
 errorTriangleList = []
-
-
-# imageWidth = 1080
-# imageHeight = 1080
-
 
 imageWidth = 49
 imageHeight = 49
@@ -49,14 +34,6 @@ inchToMm = 25.4
 filmApertureWidth = 0.9872
 filmApertureHeight = 0.735
 
-# t = 0
-# b = 0
-# l = 0
-# r = 0
-# n = 1
-# f = 1000
-
-
 # # OpenGL perspective projection matrix
 mProj = [
         [2 * n / (r - l), 0, 0, 0],
@@ -65,11 +42,7 @@ mProj = [
         [0,0,-2 * f * n / (f - n),0]
     ]
 
-
-# mProj = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]
-
 edges = []
-
     
 def computeOutcodeAtPos(i,outcodeP0, inx, iny,inz):
     
@@ -165,26 +138,6 @@ def pixelValue(point, w):
 
 
 
-# def findEdges(currVetex):
-#     flag = 0
-#     edge1 = 0
-#     edge2 = 0
-    
-#     for currEdge in edges:
-#         if(currVetex == currEdge[0] or currVetex == currEdge[1]):
-#             if(flag == 0):
-#                 if (currVetex != currEdge[0]):
-#                     edge1 = currEdge[0]
-#                 else:
-#                     edge1 = currEdge[1]
-#                 flag = 1
-#             else:
-#                 if (currVetex != currEdge[0]):
-#                     edge2 = currEdge[0]
-#                 else:
-#                     edge2 = currEdge[1]
-#     return edge1, edge2
-    
 
 def findEdges(currVetex, edges):
     flag = 0
@@ -592,9 +545,6 @@ def generateTriangles2(tr_vertex_coordinates, tr_vertex_ws, tr_num_of_vertices,e
 
         prviousFirstVertex =secondVertex
         secondVertex = thirdVertex
-    
-    
-    
     
     
 
@@ -1806,9 +1756,6 @@ def renderATriangle(currTriangle,xp, yp,zp):
         #     currTriangle, currTriangleIntervalImage, currImageColours)
         # # print("Current Triangle Interval Image = ", currTriangleIntervalImage)
         
-        
-
-    
 
 def renderATrianglePixels(xp, yp, zp, currTriangle):
 
@@ -1898,43 +1845,4 @@ def renderATrianglePixels(xp, yp, zp, currTriangle):
 
 
     return dict(imageEnablePixleDict)
-    # currImg = "testImage"
-    # currTriangle = 1
-    currTriangle = 1000
-    image = array.array('B', [1, 25, 24] * imageWidth * imageHeight)   
-    maxval = 255
-    for i in range(0, imageWidth * imageHeight):
-        if frameBuffer.get(i):
-            # print(i)
-            # image[i * 3 + 0] = frameBuffer[i][0]
-            # image[i * 3 + 1] = frameBuffer[i][1]
-            # image[i * 3 + 2] = frameBuffer[i][2]
-            image[i * 3 + 0] = max(0, min(255, abs(frameBuffer[i][0])))
-            image[i * 3 + 1] = max(0, min(255, abs(frameBuffer[i][1])))
-            image[i * 3 + 2] = max(0, min(255, abs(frameBuffer[i][2])))
-    ppm_header = f'P6 {imageWidth} {imageHeight} {maxval}\n' 
-
-    # with open("images/py_" + str(currTriangle) +"_"+str(currImage)+ ".ppm", 'wb') as f:   
-    with open("images/"+str(currImage)+".ppm", 'wb') as f:
-        f.write(bytearray(ppm_header, 'ascii'))
-        image.tofile(f)
-    # print("Rendering Done")
-
-# # renderAnImage(0.1,4.5,120.5,"test")
-# renderAnImage(0.6,4.5,193.644,"test")
-
-
-# print("Error Triangle list", errorTriangleList)
-# print("Error Triangle list length", len(errorTriangleList))
-
-
-
-
-
-
-
-
-
-
-
-
+  

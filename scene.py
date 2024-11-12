@@ -1,7 +1,5 @@
 
 
-
-
 numOfTriangles = 1729# 290+4*4 # 290 # 4+1+1
 numOfVertices = 2765#+6*4# 290*3 # 6+3+3
 numOfEdges =  5187#+9*4 #290*3# 9+3+3
